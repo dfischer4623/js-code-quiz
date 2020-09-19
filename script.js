@@ -1,11 +1,6 @@
 const timePerQuestion = 15;
 const outOfTime = 'Uh-oh! You ran out of time.';
 
-const audioDing = document.getElementById('audio-ding');
-audioDing.volume = 0.1;
-const audioBuzz = document.getElementById('audio-buzz');
-audioBuzz.volume = 0.1;
-
 let questionIndex = 0;
 let quizTime; // total time remaining
 let timer; // used to set the interval
@@ -85,11 +80,9 @@ function askQuestion() {
 function checkAnswer(e) {
   // check for right answer accounting for the '#. ' text added to each button
   if (e.substring(3, e.length) === questions[questionIndex].answer) {
-    audioDing.play();
     $('#right-or-wrong').html('<i class="far fa-check-circle"></i> Correct!').css('color', 'green');
     $('#right-or-wrong').removeClass('d-none');
   } else { // wrong answer
-    audioBuzz.play();
     $('#right-or-wrong').html('<i class="far fa-times-circle"></i> Wrong!').css('color', 'red');
     $('#right-or-wrong').removeClass('d-none');
     

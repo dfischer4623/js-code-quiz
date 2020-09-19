@@ -16,10 +16,7 @@
   text-decoration: underline;
 }
 
-.jumbo {
-  background-color: #e9ecef;
-}
-
 .jumbotron {
   padding-top: 1rem;
+  background-color: white;
 }
