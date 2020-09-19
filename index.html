@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <!-- Font Awesome CSS -->
+  <link href="assets/css/fontawesome.all.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <title>Nate's Code Quiz</title>
+
+  <audio id="audio-ding">
+    <!-- http://soundbible.com/1441-Elevator-Ding.html -->
+    <source src="assets/audio/Elevator-Ding-SoundBible.com-685385892.mp3" type="audio/mpeg" />
+  </audio>
+  <audio id="audio-buzz">
+    <!-- http://soundbible.com/1501-Buzzer.html -->
+    <source src="assets/audio/Buzzer-SoundBible.com-188422102.mp3" type="audio/mpeg" />
+  </audio>
+</head>
+<body>
+
+  
+
+  <!-- The top row with "View Highscores" and the timer countdown -->
+  <div class="container-fluid">
+    <header class="row justify-content-between jumbo p-2">
+      <div class="col-3">
+        <span id="view-highscores">View Highscores</span>
+      </div>
+      <div class="col-3 text-right">
+        <p id="time-remaining"></p>
+      </div>
+    </header>
+  </div>
+
+  <!-- The welcome prompt with quiz descript and "Begin Quiz" button -->
+  <div id="main-prompt" class="jumbotron text-center">
+    <div class="container">
+      <h1 id="start-end" class="display-4">Nate's Code Quiz</h1>
+      <p class="lead">
+        Challenge your knowledge of JavaScript! Answer the questions correctly and as quickly as possible to get your name into the high scores list.
+        This timed quiz gives you 15 seconds per question, but each wrong answer will subtract 10 seconds from the remaining time! When you finish the quiz,
+        the remaining time will be your final score.
+      </p>
+      <hr class="my-4" />
+      <p id="description"></p>
+      <button type="button" id="begin-quiz" class="btn btn-primary btn-lg">Begin Quiz</button>
+    </div>
+  </div>
+
+  <!-- Start of the main div -->
+  <div id="main-content" class="d-none">
+
+    <!-- The container for the quiz question and answers -->
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-sm-10 col-md-8 col-lg-6">
+          <p id="quiz-question"></p>
+
+          <div id="answer-options"></div>
+
+          <form id="score-form" class="form-inline mb-3 d-none">
+            <label for="initials">Enter Initials:</label>
+            <input type="text" id="initials" class="form-control ml-2" />
+            <button type="submit" id="submit-initials" class="btn btn-primary m-2">Submit</button>
+          </form>
+
+          <form id="highscore-list-buttons" class="form-inline mb-3 d-none">
+            <button type="button" id="go-back-button" class="btn btn-primary mr-2">Go Back</button>
+            <button type="button" id="clear-highscores-button" class="btn btn-primary">Clear Highscores</button>
+          </form>
+
+          <div id="right-or-wrong" class="p-1 w-100 d-none"></div>
+            
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/jquery-3.4.1.min.js"></script>
+  <script src="assets/js/questions.js"></script>
+  <script src="assets/js/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>
