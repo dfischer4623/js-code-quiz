@@ -3,22 +3,19 @@
 <html lang="en">
   
 <head>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css" />
     <title>Dave's JavaScript Code Quiz</title>
-
   </head>
 
   <body>
 
-    <div class="container-fluid">
+    <div class="container">
       <header class="row justify-content-between jumbo p-2">
         <div class="col-3">
-          <span id="view-highscores">View Highscores</span>
+          <span id="view-highscores">See Highscores</span>
         </div>
         <div class="col-3 text-right">
           <p id="time-remaining"></p>
@@ -29,10 +26,10 @@
     <div id="main-prompt" class="jumbotron text-center">
       <div class="container">
         <h1 id="start-end" class="display-4">Dave's JS Code Quiz</h1>
-        <p class="lead">
-          Challenge your knowledge of JavaScript! Answer the questions correctly and as quickly as possible to get your name into the high scores list.
-          This timed quiz gives you 15 seconds per question, but each wrong answer will subtract 10 seconds from the remaining time! When you finish the quiz,
-          the remaining time will be your final score.
+        <p>
+          What is your knowledge of JavaScript? Answer the questions correctly and get on the high scores list.
+          You get 15 seconds per question, but each wrong answer will subtract 10. Your final score is
+          the remaining time of the quiz.
         </p>
         <hr class="my-4" />
         <p id="description"></p>
@@ -41,7 +38,6 @@
     </div>
 
     <div id="main-content" class="d-none">
-
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-sm-10 col-md-8 col-lg-6">
@@ -65,9 +61,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="questions.js"></script>
     <script src="script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-  
   </body>
 
 </html>

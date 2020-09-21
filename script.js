@@ -1,17 +1,16 @@
-const timePerQuestion = 15;
-const outOfTime = 'Uh-oh! You ran out of time.';
-
 let questionIndex = 0;
-let quizTime; // total time remaining
-let timer; // used to set the interval
+let quizTime;   
+let timer; 
+const timePerQuestion = 15; 
+const outOfTime = 'Quiz over. You ran out of time.';   
 
-// If localstorage already exists, update our array
+// Get High Scores
 let highscores = [];
 if (localStorage.getItem('highscores') !== null) {
   highscores = JSON.parse(localStorage.getItem('highscores'));
 }
 
-// jQuery delegated event handler for the answer buttons
+// Event handler for buttons
 $('#answer-options').on('click', '.answer-button', function() {
   checkAnswer($(this).text());
 });
@@ -22,13 +21,10 @@ $('#view-highscores').on('click', function() {
 
 $(document).ready(function() {
   resetQuizTime();
-  $('#description').text('There are ' + questions.length + ' questions in this quiz. Good luck!');
+  $('#description').text('There are ' + questions.length + ' questions in this quiz.');
 });
 
-/*
- * TIMER
- */
-
+// Timer
 function updateTimeDisplay() {
   $('#time-remaining').text('Time: ' + quizTime);
 }
@@ -60,14 +56,10 @@ $('#begin-quiz').on('click', function() {
   timer = setInterval(startTimer, 1000); // start the timer
 });
 
-/*
- * QUIZ QUESTIONS AND ANSWERS
- */
-
+// Quiz questions
 function askQuestion() {
   $('#answer-options').empty();
   $('#quiz-question').text(questions[questionIndex].title);
-
   for (let i = 0; i < questions[questionIndex].choices.length; i++) {
     let buttonDiv = $('<div class="form-group">'); // Bootstrap div and class to add space between buttons
     let answerButton = $('<button class="btn btn-primary answer-button">');
@@ -78,11 +70,11 @@ function askQuestion() {
 }
 
 function checkAnswer(e) {
-  // check for right answer accounting for the '#. ' text added to each button
-  if (e.substring(3, e.length) === questions[questionIndex].answer) {
+  if (e.substring(3, e.length) === questions[questionIndex].answer) { // correct answer
     $('#right-or-wrong').html('<i class="far fa-check-circle"></i> Correct!').css('color', 'green');
     $('#right-or-wrong').removeClass('d-none');
-  } else { // wrong answer
+  } else 
+  { // wrong answer
     $('#right-or-wrong').html('<i class="far fa-times-circle"></i> Wrong!').css('color', 'red');
     $('#right-or-wrong').removeClass('d-none');
     
@@ -96,17 +88,17 @@ function checkAnswer(e) {
       endQuiz(outOfTime);
     }
   }
-  // hide the "Correct" or "Wrong" notification after 1 second.
+  // hide the "Correct" or "Wrong" notification after 2 seconds.
   setTimeout(function() {
     $('#right-or-wrong').addClass('d-none');
-  }, 1000);
+  }, 2000);
 
   if (questionIndex < questions.length - 1) {
     questionIndex++;
     askQuestion();
   } else {
     clearInterval(timer);
-    endQuiz('All done! That was the last question.');
+    endQuiz('Quiz has ended.');
   }
 }
 
@@ -139,8 +131,8 @@ function showHighscores() {
   clearInterval(timer);
   resetQuizTime();
   $('#answer-options').empty();
-  $('header').addClass('d-none'); // hide the "show highscores" and timer row
-  $('#score-form').addClass('d-none'); // in case they click to show high scores without entering a time
+  $('header').addClass('d-none'); 
+  $('#score-form').addClass('d-none'); 
   
   if (!$('#main-prompt').hasClass('d-none')) {
     $('#main-prompt').addClass('d-none');
