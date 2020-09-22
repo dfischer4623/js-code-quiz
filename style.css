@@ -1,5 +1,5 @@
 #right-or-wrong {
-  border-top: 20px solid #ddd;
+  border-top: 20px solid white;
 }
 
 #answer-options button {
@@ -13,7 +13,8 @@
 
 #view-highscores:hover {
   cursor: pointer;
-  text-decoration: underline;
+  background-color: blue;
+  color: white;
 }
 
 .jumbotron {
