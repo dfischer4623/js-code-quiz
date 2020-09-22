@@ -1,23 +1,8 @@
-#right-or-wrong {
-  border-top: 20px solid white;
-}
-
-#answer-options button {
-  border-radius: 1.25rem;
-}
-
 #quiz-question {
-  font-size: 2rem;
+  font-size: 32px;
   font-weight: bold;
 }
 
-#view-highscores:hover {
-  cursor: pointer;
-  background-color: blue;
-  color: white;
-}
-
 .jumbotron {
-  padding-top: 1rem;
-  background-color: white;
+  background-color: rgb(181, 215, 226);
 }
