@@ -1,4 +1,4 @@
-let questionIndex = 0;
+let questionIndex = 0; 
 let quizTime;   
 let timer; 
 const timePerQuestion = 15; 
@@ -28,24 +28,19 @@ var questions = [
   }
 ];
 
+$(document).ready(function() {
+  resetQuizTime();
+  $('#description').text('There are ' + questions.length + ' questions in this quiz.');
+});
+
 // Get High Scores
 let highscores = [];
 if (localStorage.getItem('highscores') !== null) {
   highscores = JSON.parse(localStorage.getItem('highscores'));
 }
 
-// Event handler for buttons
-$('#answer-options').on('click', '.answer-button', function() {
-  checkAnswer($(this).text());
-});
-
 $('#view-highscores').on('click', function() {
   showHighscores();
-});
-
-$(document).ready(function() {
-  resetQuizTime();
-  $('#description').text('There are ' + questions.length + ' questions in this quiz.');
 });
 
 // Timer
@@ -70,17 +65,17 @@ function startTimer() {
   }
 }
 
-// Start the quiz
+// Start & set screen
 $('#begin-quiz').on('click', function() {
   resetQuizTime();
-  $('header').removeClass('jumbo'); // change the color of the top bar
-  $('#main-prompt').addClass('d-none'); // hide the jumbotron
+  $('header').removeClass('jumbo'); // hide the jumbotron
+  $('#main-prompt').addClass('d-none'); // hide the main-prompt
   $('#main-content').removeClass('d-none'); // unhide the question and answer divs
   askQuestion();
   timer = setInterval(startTimer, 1000); // start the timer
 });
 
-// Quiz questions
+// Questions
 function askQuestion() {
   $('#answer-options').empty();
   $('#quiz-question').text(questions[questionIndex].title);
@@ -92,6 +87,11 @@ function askQuestion() {
     $('#answer-options').append(buttonDiv);
   }
 }
+
+// Event handler for buttons
+$('#answer-options').on('click', '.answer-button', function() {
+  checkAnswer($(this).text());
+});
 
 function checkAnswer(e) {
   if (e.substring(3, e.length) === questions[questionIndex].answer) { // correct answer
@@ -112,10 +112,10 @@ function checkAnswer(e) {
       endQuiz(outOfTime);
     }
   }
-  // hide the "Correct" or "Wrong" notification after 2 seconds.
+  // hide the "Correct" or "Wrong" notification after 3 seconds.
   setTimeout(function() {
     $('#right-or-wrong').addClass('d-none');
-  }, 2000);
+  }, 3000);
 
   if (questionIndex < questions.length - 1) {
     questionIndex++;
